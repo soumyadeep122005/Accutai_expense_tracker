@@ -1,0 +1,2 @@
+"""Accutai Expense Tracker Backend Application Package"""
+__version__ = "1.0.0"
