@@ -5,7 +5,6 @@ import {
   FileText,
   Edit2,
   Trash2,
-  Download,
   Tag,
   User,
   ExternalLink,
@@ -71,31 +70,6 @@ export default function TransactionTable({
     }
   };
 
-  // Export to CSV
-  const handleExportCSV = () => {
-    if (!filteredTransactions.length) return;
-    const headers = ['ID', 'Date', 'Type', 'Category', 'Description', 'Amount', 'Logged By', 'Receipt URL'];
-    const rows = filteredTransactions.map((t) => [
-      t.id,
-      t.date ? new Date(t.date).toISOString().split('T')[0] : '',
-      t.type,
-      `"${(t.category_name || '').replace(/"/g, '""')}"`,
-      `"${(t.description || '').replace(/"/g, '""')}"`,
-      t.amount,
-      t.user_email || t.user_name || '',
-      t.receipt_url || ''
-    ]);
-
-    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `accutai_shared_ledger_${new Date().toISOString().slice(0, 10)}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <div className="table-card">
       {/* Header & Controls */}
@@ -141,17 +115,8 @@ export default function TransactionTable({
           </select>
         </div>
 
-        {/* Action Buttons */}
+        {/* Action Button */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <button
-            onClick={handleExportCSV}
-            className="btn btn-outline btn-sm"
-            title="Download CSV"
-          >
-            <Download size={15} />
-            <span>Export CSV</span>
-          </button>
-
           <button
             onClick={onOpenAddModal}
             className="btn btn-primary btn-sm"

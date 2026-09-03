@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Plus, Calendar, ShieldCheck, Download, LogOut, User } from 'lucide-react';
+import { Menu, Plus, Calendar, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const MONTH_NAMES = [
@@ -36,15 +36,6 @@ export default function Navbar({
 
         <div className="page-title-group">
           <h1>{pageTitle}</h1>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '2px' }}>
-            <span className="ledger-pill">
-              <span className="pulse-dot"></span>
-              Live Shared Ledger
-            </span>
-            <span style={{ fontSize: '0.8rem', color: '#64748b' }}>
-              Synchronized for all @accutai.com members
-            </span>
-          </div>
         </div>
       </div>
 
