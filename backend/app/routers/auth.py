@@ -104,5 +104,5 @@ async def google_auth_callback(code: str = Query(...), db: Session = Depends(get
 
     token = create_access_token(data={"sub": user.email, "user_id": user.id})
     # Redirect to frontend dashboard with token
-    frontend_url = f"http://localhost:5174/?token={token}"
+    frontend_url = f"{settings.FRONTEND_URL.rstrip('/')}/?token={token}"
     return RedirectResponse(url=frontend_url)

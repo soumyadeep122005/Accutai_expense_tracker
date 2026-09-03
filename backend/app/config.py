@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     GOOGLE_CLIENT_ID: str = ""
     GOOGLE_CLIENT_SECRET: str = ""
     GOOGLE_REDIRECT_URI: str = "http://127.0.0.1:8000/auth/google/callback"
+    FRONTEND_URL: str
 
     # JWT Security
     SECRET_KEY: str = "accutai-super-secure-finance-ledger-secret-2026"
