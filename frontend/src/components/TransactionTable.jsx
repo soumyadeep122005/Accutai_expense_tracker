@@ -109,7 +109,7 @@ export default function TransactionTable({
             onChange={(e) => setSelectedType(e.target.value)}
             aria-label="Filter by type"
           >
-            <option value="ALL">All Types</option>
+            <option value="ALL">All Transactions</option>
             <option value="expense">Expenses Only</option>
             <option value="income">Income Only</option>
           </select>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Plus, Calendar, LogOut } from 'lucide-react';
+import { Menu, Plus, Calendar } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const MONTH_NAMES = [
@@ -17,7 +17,7 @@ export default function Navbar({
   setIsSidebarOpen,
   pageTitle = 'Financial Dashboard'
 }) {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const years = [2024, 2025, 2026, 2027];
 
   return (
@@ -83,7 +83,7 @@ export default function Navbar({
           <span>Add Entry</span>
         </button>
 
-        {/* User Profile Pill with Sign Out */}
+        {/* User Profile Pill */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -116,28 +116,6 @@ export default function Navbar({
               {user?.email || 'user@accutai.com'}
             </span>
           </div>
-          <button
-            onClick={logout}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.25rem',
-              color: '#e11d48',
-              backgroundColor: '#ffffff',
-              border: '1px solid #fecdd3',
-              borderRadius: '999px',
-              padding: '0.25rem 0.55rem',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              marginLeft: '0.2rem'
-            }}
-            title="Sign Out"
-            id="navbar-signout-btn"
-          >
-            <LogOut size={12} />
-            <span>Sign Out</span>
-          </button>
         </div>
       </div>
     </header>

@@ -44,7 +44,7 @@ export default function App() {
     setDataLoading(true);
     try {
       const [txList, catList, bData, mData] = await Promise.all([
-        api.getTransactions({ year: selectedYear, month: selectedMonth }),
+        api.getTransactions(),
         api.getCategories(),
         api.getBudget(selectedYear, selectedMonth),
         api.getMonthlyReport(selectedYear, selectedMonth)

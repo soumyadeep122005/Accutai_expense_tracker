@@ -5,13 +5,14 @@ import {
   PieChart,
   Calendar,
   Wallet,
+  LogOut,
   ShieldCheck,
   Users
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }) {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -63,7 +64,7 @@ export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }
 
         {/* User Footer */}
         <div className="sidebar-footer">
-          <div className="user-profile-badge" style={{ padding: '0.85rem' }}>
+          <div className="user-profile-badge" style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', padding: '0.85rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: '100%' }}>
               <div className="user-avatar">
                 {user?.username ? user.username.charAt(0).toUpperCase() : 'A'}
@@ -73,6 +74,29 @@ export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }
                 <span className="user-email" title={user?.email}>{user?.email || 'user@accutai.com'}</span>
               </div>
             </div>
+            <button
+              onClick={logout}
+              className="btn btn-outline btn-sm"
+              style={{
+                width: '100%',
+                justifyContent: 'center',
+                color: '#e11d48',
+                backgroundColor: '#ffffff',
+                borderColor: '#fecdd3',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                padding: '0.4rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                borderRadius: '6px'
+              }}
+              title="Sign Out from Accutai Finance Portal"
+              id="profile-signout-btn"
+            >
+              <LogOut size={14} />
+              <span>Sign Out</span>
+            </button>
           </div>
         </div>
       </aside>
