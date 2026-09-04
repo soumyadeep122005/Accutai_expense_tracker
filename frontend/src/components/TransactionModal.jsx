@@ -30,7 +30,7 @@ export default function TransactionModal({
 
   useEffect(() => {
     if (editTx) {
-      setType(editTx.type || 'expense');
+      setType('expense');
       setAmount(editTx.amount || '');
       setCategoryId(editTx.category_id || (categories.length ? categories[0].id : ''));
       setDescription(editTx.description || '');
@@ -150,21 +150,13 @@ export default function TransactionModal({
 
         <form onSubmit={handleSubmit}>
           <div className="modal-body">
-            {/* Type selector (Budget / Expense) */}
+            {/* Expense type */}
             <div className="type-toggle-group">
               <button
                 type="button"
-                className={`type-btn ${type === 'expense' ? 'active expense' : ''}`}
-                onClick={() => setType('expense')}
+                className="type-btn active expense"
               >
                 Expense
-              </button>
-              <button
-                type="button"
-                className={`type-btn ${type === 'income' ? 'active income' : ''}`}
-                onClick={() => setType('income')}
-              >
-                Budget
               </button>
             </div>
 
