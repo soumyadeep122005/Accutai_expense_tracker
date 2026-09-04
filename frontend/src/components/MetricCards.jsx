@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ArrowDownRight, DollarSign, Wallet, Scale } from 'lucide-react';
+import { ArrowDownRight, Wallet, Scale } from 'lucide-react';
 
 export default function MetricCards({ monthlyData, budgetData }) {
   const formatCurrency = (val) => {
@@ -14,23 +14,22 @@ export default function MetricCards({ monthlyData, budgetData }) {
   const expense = monthlyData?.total_expense || 0;
   const net = monthlyData?.net_savings ?? (income - expense);
   const targetBudget = budgetData?.total_budget || 0;
-  const remainingBudget = budgetData?.remaining_budget ?? (targetBudget - expense);
 
   return (
     <div className="metrics-grid">
-      {/* Total Income */}
-      <div className="metric-card income">
+      {/* Monthly Budget */}
+      <div className="metric-card budget">
         <div className="metric-header">
-          <span className="metric-label">Monthly Inflow</span>
-          <div className="metric-icon-box icon-green">
-            <ArrowUpRight size={22} />
+          <span className="metric-label">Monthly Budget</span>
+          <div className="metric-icon-box icon-amber">
+            <Wallet size={20} />
           </div>
         </div>
-        <div className="metric-value" style={{ color: '#059669' }}>
-          {formatCurrency(income)}
+        <div className="metric-value" style={{ color: '#0f172a' }}>
+          {formatCurrency(targetBudget)}
         </div>
         <div className="metric-footer">
-          <span>Company revenues & credits</span>
+          <span>Shared company spending target</span>
         </div>
       </div>
 
@@ -66,21 +65,6 @@ export default function MetricCards({ monthlyData, budgetData }) {
         </div>
       </div>
 
-      {/* Shared Budget Utilization */}
-      <div className="metric-card budget">
-        <div className="metric-header">
-          <span className="metric-label">Budget Available</span>
-          <div className="metric-icon-box icon-amber">
-            <Wallet size={20} />
-          </div>
-        </div>
-        <div className="metric-value" style={{ color: remainingBudget >= 0 ? '#0f172a' : '#e11d48' }}>
-          {formatCurrency(remainingBudget)}
-        </div>
-        <div className="metric-footer">
-          <span>Target: {formatCurrency(targetBudget)}</span>
-        </div>
-      </div>
     </div>
   );
 }
