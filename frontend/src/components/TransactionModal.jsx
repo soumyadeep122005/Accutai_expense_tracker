@@ -150,7 +150,7 @@ export default function TransactionModal({
 
         <form onSubmit={handleSubmit}>
           <div className="modal-body">
-            {/* Type selector (Income / Expense) */}
+            {/* Type selector (Budget / Expense) */}
             <div className="type-toggle-group">
               <button
                 type="button"
@@ -164,7 +164,7 @@ export default function TransactionModal({
                 className={`type-btn ${type === 'income' ? 'active income' : ''}`}
                 onClick={() => setType('income')}
               >
-                Income
+                Budget
               </button>
             </div>
 
