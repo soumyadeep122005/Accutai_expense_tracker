@@ -10,10 +10,9 @@ export default function MetricCards({ monthlyData, budgetData }) {
     }).format(val || 0);
   };
 
-  const income = monthlyData?.total_income || 0;
   const expense = monthlyData?.total_expense || 0;
-  const net = monthlyData?.net_savings ?? (income - expense);
   const targetBudget = budgetData?.total_budget || 0;
+  const net = targetBudget - expense;
 
   return (
     <div className="metrics-grid">
