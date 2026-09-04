@@ -13,7 +13,7 @@ class Settings(BaseSettings):
 
     # Supabase Cloud
     SUPABASE_URL: str
-    SUPABASE_KEY: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyYnJrcnVrZGRhZGtjbWRqeXRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxNTkzNjMsImV4cCI6MjEwMzczNTM2M30.wEEsQ5X7Ze6WuYYlnZLpANG2KRfqUUcy_qbRySIdNPY"
+    SUPABASE_KEY: str
     SUPABASE_BUCKET: str
 
     # Google OAuth (loaded from .env or environment variables)
