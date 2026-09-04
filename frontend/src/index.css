@@ -214,6 +214,10 @@ a {
   position: relative;
 }
 
+.nav-link > span:not(.shared-badge) {
+  white-space: nowrap;
+}
+
 .nav-link:hover {
   background-color: var(--blue-50);
   color: var(--blue-700);
@@ -243,6 +247,8 @@ a {
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.25);
   margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .sidebar-footer {
