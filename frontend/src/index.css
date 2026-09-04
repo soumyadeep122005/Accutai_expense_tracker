@@ -970,8 +970,8 @@ a {
    ========================================================================== */
 
 .type-toggle-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
   gap: 0.5rem;
   background-color: var(--bg-surface-subtle);
   padding: 0.35rem;
@@ -979,6 +979,7 @@ a {
 }
 
 .type-btn {
+  width: 50%;
   padding: 0.55rem;
   text-align: center;
   font-weight: 600;
