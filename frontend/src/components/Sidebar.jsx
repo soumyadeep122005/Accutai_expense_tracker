@@ -5,15 +5,13 @@ import {
   PieChart,
   Calendar,
   Wallet,
-  LogOut,
   ShieldCheck,
-  Building2,
   Users
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }) {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -36,10 +34,6 @@ export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }
               e.target.src = '/alogo1.png';
             }}
           />
-          <div className="brand-title">
-            <span>Accutai</span>
-            <span className="brand-subtitle">Finance Portal</span>
-          </div>
         </div>
 
         {/* Section Title */}
@@ -67,28 +61,9 @@ export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }
           })}
         </nav>
 
-        {/* Organization Status */}
-        <div style={{
-          padding: '0.75rem',
-          backgroundColor: '#eff6ff',
-          borderRadius: '12px',
-          border: '1px solid #dbeafe',
-          marginBottom: '1rem',
-          fontSize: '0.78rem',
-          color: '#1e40af'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, marginBottom: '2px' }}>
-            <Building2 size={14} />
-            <span>Accutai Organization</span>
-          </div>
-          <p style={{ color: '#64748b', fontSize: '0.72rem' }}>
-            Single shared ledger: all entries & budget synchronized across team.
-          </p>
-        </div>
-
         {/* User Footer */}
         <div className="sidebar-footer">
-          <div className="user-profile-badge" style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', padding: '0.85rem' }}>
+          <div className="user-profile-badge" style={{ padding: '0.85rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: '100%' }}>
               <div className="user-avatar">
                 {user?.username ? user.username.charAt(0).toUpperCase() : 'A'}
@@ -98,31 +73,6 @@ export default function Sidebar({ currentTab, setCurrentTab, isOpen, setIsOpen }
                 <span className="user-email" title={user?.email}>{user?.email || 'user@accutai.com'}</span>
               </div>
             </div>
-
-            {/* Direct Sign Out Option inside Profile */}
-            <button
-              onClick={logout}
-              className="btn btn-outline btn-sm"
-              style={{
-                width: '100%',
-                justifyContent: 'center',
-                color: '#e11d48',
-                backgroundColor: '#ffffff',
-                borderColor: '#fecdd3',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                padding: '0.4rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                borderRadius: '6px'
-              }}
-              title="Sign Out from Accutai Finance Portal"
-              id="profile-signout-btn"
-            >
-              <LogOut size={14} />
-              <span>Sign Out</span>
-            </button>
           </div>
         </div>
       </aside>
