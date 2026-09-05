@@ -177,7 +177,18 @@ export default function App() {
                 </div>
 
                 <TransactionTable
-                  transactions={transactions.slice(0, 8)}
+                  transactions={transactions.filter((tx) => {
+                    const date = new Date(tx.date);
+
+                    return(
+                      date.getFullYear() === selectedYear &&
+                      date.getMonth()+1 === selectedMonth
+                    );
+
+                    
+                  })
+                  .slice(0,8)}
+
                   categories={categories}
                   onEdit={handleEditTx}
                   onDelete={handleDeleteTx}

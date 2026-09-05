@@ -90,6 +90,7 @@ export default function TransactionTable({
           {/* Category Filter */}
           <select
             className="filter-select"
+            style={{ marginLeft: 'auto'}}
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             aria-label="Filter by category"
@@ -100,18 +101,6 @@ export default function TransactionTable({
                 {c.name}
               </option>
             ))}
-          </select>
-
-          {/* Type Filter */}
-          <select
-            className="filter-select"
-            value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
-            aria-label="Filter by type"
-          >
-            <option value="ALL">All Transactions</option>
-            <option value="expense">Expenses Only</option>
-            <option value="income">Income Only</option>
           </select>
         </div>
 
